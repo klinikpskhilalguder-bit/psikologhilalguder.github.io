@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uzm. Klinik Psikolog Hilal Güder | Mersin</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest:   #1C3A2F;
+    --forest-mid: #2A5240;
+    --cream:    #F8F5F0;
+    --gold:     #C9A84C;
+    --gold-lt:  #E8D4A0;
+    --stone:    #E8E4DE;
+    --ink:      #2A2A2A;
+    --muted:    #6B6B6B;
+    --white:    #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(28, 58, 47, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--forest) !important;
+    font-weight: 600 !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-lt) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--forest);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 5vw 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(42,82,64,0.4) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 10% 80%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .hero-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--forest);
+    padding: 0.85rem 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+  .btn-secondary {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.85);
+    padding: 0.85rem 2rem;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* Wave SVG */
+  .hero-wave-wrapper {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-wave-wrapper svg {
+    width: 100%; max-width: 520px;
+    opacity: 0.9;
+  }
+  .wave-path { fill: none; stroke-width: 2.5; stroke-linecap: round; }
+  .w1 { stroke: rgba(201,168,76,0.9); animation: wave1 3s ease-in-out infinite; }
+  .w2 { stroke: rgba(255,255,255,0.4); animation: wave2 4s ease-in-out infinite; }
+  .w3 { stroke: rgba(42,82,64,0.8); animation: wave3 5s ease-in-out infinite; }
+  .w4 { stroke: rgba(201,168,76,0.4); animation: wave1 3.5s ease-in-out infinite reverse; }
+  @keyframes wave1 {
+    0%,100% { d: path("M 20 120 Q 100 60 180 120 Q 260 180 340 120 Q 420 60 500 120"); }
+    50%      { d: path("M 20 120 Q 100 150 180 120 Q 260 90 340 120 Q 420 150 500 120"); }
+  }
+  @keyframes wave2 {
+    0%,100% { d: path("M 20 150 Q 100 100 180 150 Q 260 200 340 150 Q 420 100 500 150"); }
+    50%      { d: path("M 20 150 Q 100 170 180 150 Q 260 130 340 150 Q 420 170 500 150"); }
+  }
+  @keyframes wave3 {
+    0%,100% { d: path("M 20 90 Q 80 40 160 90 Q 240 140 320 90 Q 400 40 500 90"); }
+    50%      { d: path("M 20 90 Q 80 120 160 90 Q 240 60 320 90 Q 400 120 500 90"); }
+  }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.05em;
+    margin-top: 0.3rem;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 90px 5vw; }
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .section-title em { font-style: italic; color: var(--forest); font-weight: 400; }
+
+  /* ── HAKKIMDA ── */
+  .about { background: var(--white); }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5vw;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .about-image-frame {
+    position: relative;
+  }
+  .about-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-image-placeholder::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+  }
+  .portrait-svg { width: 60%; opacity: 0.25; }
+  .about-gold-bar {
+    position: absolute;
+    bottom: -16px; right: -16px;
+    width: 80px; height: 80px;
+    background: var(--gold);
+    border-radius: 2px;
+    z-index: -1;
+  }
+  .about-text { padding: 1rem 0; }
+  .about-text .section-title { margin-bottom: 1.5rem; }
+  .about-text p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .about-text p strong { color: var(--ink); font-weight: 600; }
+  .credential-list {
+    list-style: none;
+    margin-top: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .credential-list li {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    font-size: 0.88rem;
+    color: var(--ink);
+  }
+  .credential-list li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+  }
+
+  /* ── HİZMETLER ── */
+  .services { background: var(--cream); }
+  .services-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 3.5rem;
+    max-width: 1100px; margin-left: auto; margin-right: auto;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 4px;
+    border: 1px solid var(--stone);
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+  }
+  .service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(28,58,47,0.08);
+  }
+  .service-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--forest), var(--forest-mid));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+  }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+  .service-card p {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── YAKLAŞIM ── */
+  .approach {
+    background: var(--forest);
+    color: var(--white);
+  }
+  .approach-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+    align-items: center;
+  }
+  .approach-text .section-eyebrow { color: var(--gold); }
+  .approach-text .section-title { color: var(--white); margin-bottom: 1.5rem; }
+  .approach-text p { color: rgba(255,255,255,0.72); line-height: 1.8; margin-bottom: 1rem; font-size: 0.95rem; }
+  .approach-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+  .approach-step {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 1.4rem 1.6rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .approach-step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .approach-step p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  /* ── ÇOCUK & ERGEN ── */
+  .children-section { background: var(--white); }
+  .children-inner {
+    max-width: 1100px; margin: 0 auto;
+  }
+  .children-header { margin-bottom: 3rem; }
+  .children-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .child-panel {
+    padding: 2.5rem;
+    border-radius: 4px;
+  }
+  .child-panel.panel-child {
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+    color: var(--white);
+  }
+  .child-panel.panel-teen {
+    background: var(--cream);
+    border: 1px solid var(--stone);
+  }
+  .child-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .panel-child h3 { color: var(--gold); }
+  .panel-teen h3 { color: var(--forest); }
+  .child-panel .panel-sub {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .panel-child .panel-sub { color: rgba(255,255,255,0.5); }
+  .panel-teen .panel-sub { color: var(--gold); }
+  .panel-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .panel-child .tag {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+  }
+  .panel-teen .tag {
+    background: var(--stone);
+    color: var(--forest);
+  }
+  .child-panel p { font-size: 0.88rem; line-height: 1.7; }
+  .panel-child p { color: rgba(255,255,255,0.75); }
+  .panel-teen p { color: var(--muted); }
+
+  /* ── TESTLEr ── */
+  .tests { background: var(--stone); }
+  .tests-inner { max-width: 1100px; margin: 0 auto; }
+  .tests-header { margin-bottom: 3rem; }
+  .test-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .test-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 4px;
+    border-top: 3px solid var(--gold);
+  }
+  .test-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--forest);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .test-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── GRUP TERAPİSİ ── */
+  .group-therapy { background: var(--cream); }
+  .group-inner { max-width: 1100px; margin: 0 auto; }
+  .group-header { margin-bottom: 3rem; }
+  .group-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .group-main-card {
+    background: var(--forest);
+    border-radius: 4px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .group-main-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.07);
+    pointer-events: none;
+  }
+  .group-main-card::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -20px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+  .group-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .group-main-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  .group-main-card h3 em { color: var(--gold); font-style: italic; font-weight: 400; }
+  .group-main-card p {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .group-capacity {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+  }
+  .capacity-circles {
+    display: flex;
+    gap: 5px;
+  }
+  .capacity-dot {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.85;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem;
+  }
+  .capacity-text strong {
+    display: block;
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .capacity-text span {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.04em;
+  }
+  .group-benefits { display: flex; flex-direction: column; gap: 1rem; }
+  .benefit-item {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.4rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .benefit-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--forest);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .benefit-item p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── ALINTI / QUOTE ── */
+  .quote-section {
+    background: var(--gold);
+    padding: 70px 5vw;
+  }
+  .quote-inner {
+    max-width: 800px; margin: 0 auto; text-align: center;
+  }
+  .quote-inner blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+  }
+  .quote-inner cite {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(28,58,47,0.65);
+    font-style: normal;
+  }
+
+  /* ── İLETİŞİM ── */
+  .contact { background: var(--white); }
+  .contact-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5vw;
+    align-items: start;
+  }
+  .contact-info { padding-top: 0.5rem; }
+  .contact-info .section-title { margin-bottom: 1.5rem; }
+  .contact-info p { color: var(--muted); font-size: 0.93rem; line-height: 1.8; margin-bottom: 2rem; }
+  .contact-details { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-item-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: var(--cream);
+    border: 1px solid var(--stone);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+  .contact-item-text { flex: 1; }
+  .contact-item-text strong {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+  }
+  .contact-item-text span {
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .contact-form-card {
+    background: var(--cream);
+    border: 1px solid var(--stone);
+    padding: 2.5rem;
+    border-radius: 4px;
+  }
+  .contact-form-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--forest);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--stone);
+    border-radius: 2px;
+    background: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-submit {
+    width: 100%;
+    padding: 0.9rem;
+    background: var(--forest);
+    color: var(--white);
+    border: none;
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--forest-mid); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--forest);
+    color: rgba(255,255,255,0.6);
+    padding: 50px 5vw 30px;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-col p { font-size: 0.83rem; line-height: 1.7; }
+  .footer-col h5 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1100px; margin: 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.5rem;
+    font-size: 0.78rem;
+  }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    nav { padding: 0 4vw; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 5vw 50px; }
+    .hero-wave-wrapper { display: none; }
+    .about-inner,
+    .approach-inner,
+    .contact-inner { grid-template-columns: 1fr; }
+    .children-grid { grid-template-columns: 1fr; }
+    .group-layout { grid-template-columns: 1fr; }
+    .test-cards { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 60px 5vw; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wave-path { animation: none; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#"><span>Hilal</span> Güder</a>
+  <ul class="nav-links">
+    <li><a href="#hakkimda">Hakkımda</a></li>
+    <li><a href="#hizmetler">Hizmetler</a></li>
+    <li><a href="#testler">Testler</a></li>
+    <li><a href="#grup-terapisi">Grup Terapisi</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+    <li><a href="#iletisim" class="nav-cta">Randevu Al</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Klinik Psikolog · Mersin</div>
+    <h1>Zihinsel sağlığınız<br>için <em>güvenli</em><br>bir alan</h1>
+    <p class="hero-desc">
+      Uzm. Klinik Psikolog Hilal Güder olarak; çocuk, ergen ve yetişkin bireylere yönelik bireysel terapi, psikolojik değerlendirme ve danışmanlık hizmetleri sunuyorum.
+    </p>
+    <div class="hero-actions">
+      <a href="#iletisim" class="btn-primary">Randevu Al</a>
+      <a href="#hizmetler" class="btn-secondary">Hizmetleri Keşfet</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">3</span>
+        <div class="stat-label">Uzmanlaşma Alanı</div>
+      </div>
+      <div>
+        <span class="stat-num">10+</span>
+        <div class="stat-label">Hizmet Kategorisi</div>
+      </div>
+      <div>
+        <span class="stat-num">Mersin</span>
+        <div class="stat-label">Mezitli, Merkez</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-wave-wrapper">
+    <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ambient circles -->
+      <circle cx="260" cy="140" r="200" fill="rgba(255,255,255,0.02)"/>
+      <circle cx="260" cy="140" r="140" fill="rgba(255,255,255,0.02)"/>
+      <circle cx="260" cy="140" r="80" fill="rgba(201,168,76,0.06)"/>
+      <!-- Animated brain waves -->
+      <path class="wave-path w3" d="M 20 90 Q 80 40 160 90 Q 240 140 320 90 Q 400 40 500 90"/>
+      <path class="wave-path w2" d="M 20 150 Q 100 100 180 150 Q 260 200 340 150 Q 420 100 500 150"/>
+      <path class="wave-path w1" d="M 20 120 Q 100 60 180 120 Q 260 180 340 120 Q 420 60 500 120"/>
+      <path class="wave-path w4" d="M 20 170 Q 100 200 180 170 Q 260 140 340 170 Q 420 200 500 170"/>
+      <!-- Center dot -->
+      <circle cx="260" cy="140" r="6" fill="#C9A84C" opacity="0.8"/>
+      <circle cx="260" cy="140" r="14" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+      <circle cx="260" cy="140" r="28" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.15"/>
+    </svg>
+  </div>
+</section>
+
+<!-- HAKKIMDA -->
+<section class="about" id="hakkimda">
+  <div class="about-inner">
+    <div class="about-image-frame">
+      <div class="about-image-placeholder">
+        <!-- Soyut bir şekil — Fotoğrafınızla değiştirilebilir -->
+        <svg class="portrait-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="52" rx="30" ry="32" fill="white"/>
+          <path d="M10 160 Q10 100 60 100 Q110 100 110 160" fill="white"/>
+        </svg>
+      </div>
+      <div class="about-gold-bar"></div>
+    </div>
+    <div class="about-text">
+      <div class="section-eyebrow">Hakkımda</div>
+      <h2 class="section-title">Uzm. Klinik Psikolog<br><em>Hilal Güder</em></h2>
+      <p>
+        Klinik psikoloji alanında uzmanlaşmış bir terapist olarak; çocukluktan yetişkinliğe uzanan geniş bir yelpazede bireylerin psikolojik iyilik hallerine katkıda bulunuyorum.
+      </p>
+      <p>
+        <strong>Çocuk ve ergen değerlendirmelerinde</strong> dikkat eksikliği, öğrenme güçlükleri ve gelişimsel süreçlere odaklanırken; yetişkin terapisinde kaygı, depresyon, yas, ilişki sorunları ve yaşam kalitesini düşüren her türlü zorluğa kapsamlı destek sunuyorum.
+      </p>
+      <p>
+        Psiko-onkoloji alanında kanser hastalarına ve yakınlarına destek vermek, benim için bu mesleğin en anlamlı boyutlarından birini oluşturmaktadır.
+      </p>
+      <ul class="credential-list">
+        <li>Klinik Psikoloji Uzmanlığı</li>
+        <li>MOXO, WISC-IV, NEEURO Test Uygulayıcısı</li>
+        <li>Psiko-onkoloji Alanında Deneyim</li>
+        <li>Bireysel Terapi · Yas Danışmanlığı · Teknoloji Bağımlılığı</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HİZMETLER -->
+<section class="services" id="hizmetler">
+  <div class="services-header">
+    <div>
+      <div class="section-eyebrow">Hizmetler</div>
+      <h2 class="section-title">Sunduğum <em>Destek Alanları</em></h2>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <h3>Bireysel Terapi</h3>
+      <p>Kaygı bozukluğu, depresyon, obsesif kompulsif bozukluk ve genel psikolojik iyilik hali için bütüncül terapi süreci.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌊</div>
+      <h3>Yas Danışmanlığı</h3>
+      <p>Kayıp sonrası yaşanan yas sürecini sağlıklı biçimde deneyimlemek ve ilerleyebilmek için destekleyici bir alan.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧠</div>
+      <h3>Dikkat Eksikliği</h3>
+      <p>Çocuk, ergen ve yetişkinlerde DEHB değerlendirmesi ve terapi desteği; MOXO testleri ile desteklenen kapsamlı süreç.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">❤️</div>
+      <h3>İlişki Sorunları</h3>
+      <p>Kişilerarası ilişki örüntülerini keşfetmek, sağlıklı iletişim kurmak ve bağ sorunlarını çözmek için bireysel destek.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌸</div>
+      <h3>Psiko-onkoloji</h3>
+      <p>Kanser tanısı alan hastalar ve yakınlarına bireysel destek ve 6 kişilik grup terapisi; hastalık sürecini zihinsel olarak bütünleştirme yolculuğu.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <h3>Teknoloji Bağımlılığı</h3>
+      <p>Dijital bağımlılık davranışlarının farkındalıkla ele alınması ve sürdürülebilir bir yaşam dengesi oluşturulması.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📚</div>
+      <h3>Sınav Kaygısı</h3>
+      <p>Akademik performansı olumsuz etkileyen sınav kaygısını azaltmak ve öz-yetkinliği güçlendirmek için pratik destek.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔄</div>
+      <h3>OKB</h3>
+      <p>Obsesif kompulsif bozukluğun bilişsel-davranışçı yaklaşımlarla ele alındığı, kanıta dayalı terapi süreci.</p>
+    </div>
+  </div>
+</section>
+
+<!-- YAKLAŞIM -->
+<section class="approach" id="yaklasim">
+  <div class="approach-inner">
+    <div class="approach-text">
+      <div class="section-eyebrow">Terapi Yaklaşımım</div>
+      <h2 class="section-title">Her birey <em>kendine özgündür</em></h2>
+      <p>
+        Terapi sürecinde bireyin kendine özgün hikayesini, güçlü yanlarını ve potansiyelini merkeze alıyorum. Yargılamadan dinlemek ve güvenli bir alan yaratmak, terapinin temel taşlarıdır.
+      </p>
+      <p>
+        Kanıta dayalı yöntemler ile bütüncül bir bakış açısını bir arada kullanarak; her danışanın ihtiyacına göre şekillenen, esnek ve kişiselleştirilmiş bir terapi sunuyorum.
+      </p>
+    </div>
+    <div class="approach-steps">
+      <div class="approach-step">
+        <h4>İlk Değerlendirme</h4>
+        <p>Birlikte ihtiyaçlarınızı, beklentilerinizi ve hedeflerinizi belirliyoruz. Bu görüşme hem tanışma hem de sürecin çerçevesini belirleme fırsatıdır.</p>
+      </div>
+      <div class="approach-step">
+        <h4>Kişiselleştirilmiş Plan</h4>
+        <p>Değerlendirme bulgularına ve danışanın hedeflerine göre, kanıta dayalı yöntemlerle desteklenen bireysel terapi planı oluşturulur.</p>
+      </div>
+      <div class="approach-step">
+        <h4>Süreci Birlikte Yürütmek</h4>
+        <p>Güvenli, yargılamayan bir ilişki içinde; adım adım ilerleyerek farkındalık ve değişim için çalışıyoruz.</p>
+      </div>
+      <div class="approach-step">
+        <h4>İlerleme ve Değerlendirme</h4>
+        <p>Terapi süreci düzenli olarak değerlendirilir; hedefler ve yöntemler gerektiğinde güncellenir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÇOCUK & ERGEN -->
+<section class="children-section" id="cocuk-ergen">
+  <div class="children-inner">
+    <div class="children-header">
+      <div class="section-eyebrow">Çocuk & Ergen</div>
+      <h2 class="section-title">Her gelişim dönemine<br><em>özel destek</em></h2>
+    </div>
+    <div class="children-grid">
+      <div class="child-panel panel-child">
+        <div class="panel-sub">Çocuklar</div>
+        <h3>Çocuk Psikolojisi</h3>
+        <p>Çocukların duygu, davranış ve gelişim süreçlerine yönelik uzman değerlendirme ve terapi. MOXO, WISC-IV ve NEEURO gibi güvenilir araçlarla bilimsel temelli değerlendirme yapıyorum.</p>
+        <div class="panel-tags">
+          <span class="tag">MOXO Dikkat Testi</span>
+          <span class="tag">WISC-IV</span>
+          <span class="tag">NEEURO</span>
+          <span class="tag">Dikkat Eksikliği</span>
+          <span class="tag">Davranış Sorunları</span>
+        </div>
+      </div>
+      <div class="child-panel panel-teen">
+        <div class="panel-sub">Ergenler</div>
+        <h3>Ergen Terapisi</h3>
+        <p>Ergenlik döneminin getirdiği kimlik gelişimi, akran ilişkileri, sınav kaygısı ve duygusal değişimlerin üstesinden gelmek için destekleyici bir ortam sunuyorum.</p>
+        <div class="panel-tags">
+          <span class="tag">Kimlik Gelişimi</span>
+          <span class="tag">Sınav Kaygısı</span>
+          <span class="tag">Teknoloji Bağımlılığı</span>
+          <span class="tag">Akran İlişkileri</span>
+          <span class="tag">Kaygı</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTLER -->
+<section class="tests" id="testler">
+  <div class="tests-inner">
+    <div class="tests-header">
+      <div class="section-eyebrow">Psikolojik Değerlendirme</div>
+      <h2 class="section-title">Bilimsel <em>test uygulamaları</em></h2>
+    </div>
+    <div class="test-cards">
+      <div class="test-card">
+        <h4>MOXO Dikkat Testi</h4>
+        <p>Bilgisayar tabanlı, oyun benzeri bir dikkat değerlendirme aracı. DEHB tanısını desteklemek ve dikkat profilini belirlemek amacıyla 6–18 yaş arasında uygulanır.</p>
+      </div>
+      <div class="test-card">
+        <h4>WISC-IV</h4>
+        <p>Wechsler Çocuklar için Zeka Ölçeği; bilişsel güçlü ve zayıf yönleri, genel zeka düzeyini ve öğrenme stilini kapsamlı biçimde değerlendirir.</p>
+      </div>
+      <div class="test-card">
+        <h4>NEEURO</h4>
+        <p>Nörobilim temelli dijital değerlendirme ve eğitim platformu. Dikkat, hafıza ve bilişsel esneklik gibi yürütücü işlevleri ölçmek ve desteklemek için kullanılır.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRUP TERAPİSİ -->
+<section class="group-therapy" id="grup-terapisi">
+  <div class="group-inner">
+    <div class="group-header">
+      <div class="section-eyebrow">Grup Çalışması</div>
+      <h2 class="section-title">Onkoloji hastalarıyla<br><em>grup terapisi</em></h2>
+    </div>
+    <div class="group-layout">
+      <div class="group-main-card">
+        <div class="group-badge">🌿 Psiko-onkoloji Grup Terapisi</div>
+        <h3>Birlikte iyileşmek,<br><em>birlikte güçlenmek</em></h3>
+        <p>
+          Kanser tanısı ve tedavi süreci; bireyin yalnızca bedenini değil, zihinsel ve duygusal dünyasını derinden etkiler. Bu zorlu yolculukta yalnız olmadığını hissetmek, iyileşme sürecinin önemli bir parçasıdır.
+        </p>
+        <p>
+          Onkoloji hastalarına yönelik grup terapisi seanslarında; paylaşım, dayanışma ve ortak deneyimler aracılığıyla duygusal destek sağlanmakta, baş etme becerileri güçlendirilmektedir.
+        </p>
+        <div class="group-capacity">
+          <div class="capacity-circles">
+            <div class="capacity-dot">👤</div>
+            <div class="capacity-dot">👤</div>
+            <div class="capacity-dot">👤</div>
+            <div class="capacity-dot">👤</div>
+            <div class="capacity-dot">👤</div>
+            <div class="capacity-dot">👤</div>
+          </div>
+          <div class="capacity-text">
+            <strong>6 Kişi</strong>
+            <span>Maksimum grup kapasitesi</span>
+          </div>
+        </div>
+        <a href="#iletisim" class="btn-primary" style="font-size:0.85rem;">Grup Hakkında Bilgi Al</a>
+      </div>
+
+      <div class="group-benefits">
+        <div class="benefit-item">
+          <h4>Ortak Deneyim Gücü</h4>
+          <p>Aynı süreci yaşayan bireylerle bir arada olmak; "yalnız değilim" hissini güçlendirir ve duygusal yükü hafifletir.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Küçük ve Güvenli Grup</h4>
+          <p>Yalnızca 6 kişilik kapasite, her bireyin kendini ifade edebildiği, derin ve güvenli bir alan oluşturur.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Baş Etme Becerileri</h4>
+          <p>Hastalık sürecindeki kaygı, belirsizlik ve değişimlerle başa çıkabilmek için pratik ve duygusal araçlar geliştirilir.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Uzman Rehberliği</h4>
+          <p>Psiko-onkoloji alanında deneyimli bir klinisyen eşliğinde, yapılandırılmış ve kanıta dayalı grup süreci yürütülür.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-inner">
+    <blockquote>
+      "İyileşmek, kendinizi yeniden bulmak; yaşamı daha tam ve anlamlı yaşayabilmek için başladığınız bir yolculuktur."
+    </blockquote>
+    <cite>— Uzm. Klinik Psikolog Hilal Güder</cite>
+  </div>
+</div>
+
+<!-- İLETİŞİM -->
+<section class="contact" id="iletisim">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-eyebrow">İletişim</div>
+      <h2 class="section-title">Randevu almak<br><em>çok kolay</em></h2>
+      <p>Sorularınız için veya randevu almak için aşağıdaki bilgilerden bana ulaşabilirsiniz. Size en kısa sürede geri dönüş yapacağım.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>Telefon</strong>
+            <span>0538 065 01 12</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Adres</strong>
+            <span>Merkez Mahallesi 52005 Sokak<br>En Ofis Sitesi 6. Kat No: 22<br>Mezitli / Mersin</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-text">
+            <strong>Çalışma Saatleri</strong>
+            <span>Pazartesi – Cumartesi<br>09:00 – 18:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+      <h3>Randevu Talebi</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Adınız</label>
+          <input type="text" placeholder="Ad Soyad">
+        </div>
+        <div class="form-group">
+          <label>Telefon</label>
+          <input type="tel" placeholder="05__ ___ __ __">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>E-posta</label>
+        <input type="email" placeholder="ornek@eposta.com">
+      </div>
+      <div class="form-group">
+        <label>Hizmet Türü</label>
+        <select>
+          <option value="">Seçiniz...</option>
+          <option>Bireysel Terapi (Yetişkin)</option>
+          <option>Çocuk Psikolojisi</option>
+          <option>Ergen Terapisi</option>
+          <option>Psikolojik Test Değerlendirme</option>
+          <option>Yas Danışmanlığı</option>
+          <option>Psiko-onkoloji</option>
+          <option>Diğer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mesajınız (İsteğe Bağlı)</label>
+        <textarea placeholder="Kısaca durumunuzu ya da sorunuzu belirtebilirsiniz…"></textarea>
+      </div>
+      <button class="form-submit">Randevu Talebini Gönder</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <span class="footer-brand"><span>Hilal</span> Güder</span>
+      <p>Uzman Klinik Psikolog olarak çocuk, ergen ve yetişkin bireylere Mersin'de psikolojik destek sunuyorum.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Hizmetler</h5>
+      <ul>
+        <li><a href="#hizmetler">Bireysel Terapi</a></li>
+        <li><a href="#hizmetler">Yas Danışmanlığı</a></li>
+        <li><a href="#hizmetler">Psiko-onkoloji</a></li>
+        <li><a href="#hizmetler">Sınav Kaygısı</a></li>
+        <li><a href="#testler">Psikolojik Testler</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>İletişim</h5>
+      <ul>
+        <li><a href="tel:+905380650112">0538 065 01 12</a></li>
+        <li><a href="#iletisim">Mezitli / Mersin</a></li>
+        <li><a href="#iletisim">Randevu Al</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Uzm. Klinik Psikolog Hilal Güder. Tüm hakları saklıdır.</span>
+    <span>Mersin · Mezitli</span>
+  </div>
+</footer>
+
+</body>
+</html>
